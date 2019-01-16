@@ -20,6 +20,7 @@ namespace Learn_KeyVault_Console {
                         Environment.Exit(0);
                         break;
 
+                    //Read from KV
                     case "R":
                         //Console.Write("Enter name of KeyVault: "); vaultName = Console.ReadLine();
                         Console.Write("Enter Secret name: "); secretName = Console.ReadLine();
@@ -28,13 +29,15 @@ namespace Learn_KeyVault_Console {
                         Console.WriteLine("Got Secret: " + secret);
                         Console.Read();
                         break;
+
+                    //Write to KV
                     case "W":
                         Console.Write("Enter name of Secret: "); secretName = Console.ReadLine();
                         Console.Write("Enter Secret Value: "); secretValue = Console.ReadLine();
 
                         kvHelper.WriteSecret(secretName, secretValue);
                         Console.WriteLine("Write complete!");
-                        //Console.Read();
+                        Console.Read();
                         break;
                 }
                 Program.printDefaultInstructions();

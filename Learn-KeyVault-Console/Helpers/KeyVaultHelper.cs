@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Learn_KeyVault_Console.Helpers {
     class KeyVaultHelper {
         public KeyVaultHelper() { }
-
+        //Get a Secret from KeyVault
         public async Task<string> GetSecret(string secretName) {
             AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
             KeyVaultClient keyVaultClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
@@ -17,6 +17,7 @@ namespace Learn_KeyVault_Console.Helpers {
             return secret.Value;
         }
 
+        //Write a Secert to Key Vault
         public async void WriteSecret(string secretName, string secretValue) {
             AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
             KeyVaultClient keyVaultClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
