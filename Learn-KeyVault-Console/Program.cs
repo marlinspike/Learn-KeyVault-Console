@@ -7,12 +7,13 @@ namespace Learn_KeyVault_Console {
     class Program {
 
         static void Main(string[] args) {
-            string vaultName, secretName, secretValue = "";
+            string vaultName, secretName, secretValue, keyName = "";
             KeyVaultHelper kvHelper = new KeyVaultHelper();
             Program.printDefaultInstructions();
             string input = "";
             Program p = new Program();
             input = Console.ReadLine().ToUpper();
+
             while ((input != " ")) {
                 switch (input) {
                     case "X":
@@ -39,6 +40,16 @@ namespace Learn_KeyVault_Console {
                         Console.WriteLine("Write complete!");
                         Console.Read();
                         break;
+
+                    //Get Key
+                    case "K":
+                        Console.Write("Enter name of Key: "); keyName = Console.ReadLine();
+
+
+                        string key = kvHelper.GetKey(keyName).GetAwaiter().GetResult();
+                        Console.WriteLine("Got Key: " + key);
+                        Console.Read();
+                        break;
                 }
                 Program.printDefaultInstructions();
                 input = Console.ReadLine().ToUpper();
@@ -49,8 +60,9 @@ namespace Learn_KeyVault_Console {
             Console.Clear();
             Console.WriteLine("");
             Console.WriteLine("---------");
-            Console.WriteLine("R   = Read from KeyVault");
-            Console.WriteLine("W   = Write to KeyVault");
+            Console.WriteLine("R   = Read Secret from KeyVault");
+            Console.WriteLine("W   = Write Secret to KeyVault");
+            Console.WriteLine("K   = Read Key from KeyVault");
 
             Console.WriteLine("X   = Exit");
             Console.WriteLine("---------");
