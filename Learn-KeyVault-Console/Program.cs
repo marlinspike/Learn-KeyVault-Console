@@ -14,7 +14,7 @@ namespace Learn_KeyVault_Console {
             Program p = new Program();
             input = Console.ReadLine().ToUpper();
 
-            while ((input != " ")) {
+            while (true) {
                 switch (input) {
                     case "X":
                         
