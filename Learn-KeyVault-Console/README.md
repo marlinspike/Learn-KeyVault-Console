@@ -1,1 +1,1 @@
-﻿
+﻿Demo of using Key Vault from a C# .NET app, as well as an implementation of a Bridge Pattern for exposing secrets via Key Vault or App Config file.
